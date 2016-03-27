@@ -64,6 +64,11 @@
             android:layout_alignBottom="@+id/bmiAge"
             android:layout_toRightOf="@+id/bimAgeInput"
             android:layout_toEndOf="@+id/bimAgeInput" />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/textView4"
+            android:layout_marginLeft="@dimen/inputsPadding"/>
     </RelativeLayout>
 
     <RelativeLayout

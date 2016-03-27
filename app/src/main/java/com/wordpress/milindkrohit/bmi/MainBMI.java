@@ -117,8 +117,8 @@ public class MainBMI extends AppCompatActivity implements DialogComm{
     }
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public void showMyDialog( int dNum){
-        BMIInput gameAlert= new BMIInput();
-
-        gameAlert.show(getFragmentManager(), "gameAlert");
+        BMIInput dialogAlert= new BMIInput();
+       dialogAlert.setDialogType(dNum);
+        dialogAlert.show(getFragmentManager(), "gameAlert");
     }
 }
