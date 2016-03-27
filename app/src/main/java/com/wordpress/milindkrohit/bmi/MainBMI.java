@@ -14,6 +14,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 public class MainBMI extends AppCompatActivity {
     Animation animRotate;
@@ -28,22 +29,22 @@ public class MainBMI extends AppCompatActivity {
         setSupportActionBar(toolbar);
         init();
         LinearLayout l = (LinearLayout)findViewById(R.id.bmiL);
-        LinearLayout l1 = (LinearLayout)findViewById(R.id.bmiL1);
+        RelativeLayout l1 = (RelativeLayout)findViewById(R.id.bmiL1);
         Arc pcc = new Arc (this);
         Bitmap result = Bitmap.createBitmap(125, 125, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(result);
         pcc.draw(canvas);
-       // animRotate = AnimationUtils.loadAnimation(getApplicationContext(),
-        //        R.anim.rotate);
+       animRotate = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.rotate);
         l1.addView(pcc);
         // start the animation
-       // needle.startAnimation(animRotate);
+        needle.startAnimation(animRotate);
 
 
     }
     public void init(){
        // v.findViewById(R.id.vMain);
-       // needle = (ImageButton)findViewById(R.id.needle);
+        needle = (ImageButton)findViewById(R.id.needle);
     }
 
     @Override
