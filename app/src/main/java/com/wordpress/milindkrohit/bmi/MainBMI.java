@@ -33,17 +33,17 @@ public class MainBMI extends AppCompatActivity {
         Bitmap result = Bitmap.createBitmap(125, 125, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(result);
         pcc.draw(canvas);
-        animRotate = AnimationUtils.loadAnimation(getApplicationContext(),
-                R.anim.rotate);
-        l.addView(pcc);
+       // animRotate = AnimationUtils.loadAnimation(getApplicationContext(),
+        //        R.anim.rotate);
+        l1.addView(pcc);
         // start the animation
-        needle.startAnimation(animRotate);
+       // needle.startAnimation(animRotate);
 
 
     }
     public void init(){
        // v.findViewById(R.id.vMain);
-        needle = (ImageButton)findViewById(R.id.needle);
+       // needle = (ImageButton)findViewById(R.id.needle);
     }
 
     @Override

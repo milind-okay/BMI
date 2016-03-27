@@ -21,16 +21,22 @@ public class Arc extends View {
     public Arc(Context context) {
         super(context);
         init();
+        setMinimumHeight(100);
+        setMinimumWidth(100);
     }
 
     public Arc(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
+        setMinimumHeight(100);
+        setMinimumWidth(100);
     }
 
     public Arc(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init();
+        setMinimumHeight(100);
+        setMinimumWidth(100);
     }
 
     private void init(){
@@ -46,9 +52,9 @@ public class Arc extends View {
     protected void onDraw(Canvas canvas) {
         // TODO Auto-generated method stub
         super.onDraw(canvas);
-        float rad = 275,x,y;
+        float rad = 375,x,y;
         x = (float)getWidth()/2;
-        y = (float)getHeight()/2;
+        y = (float)getHeight() - ((float)getHeight()/8);
         m1 = 35;
         final RectF oval = new RectF();
         paint.setStyle(Paint.Style.STROKE);
