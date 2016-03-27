@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="5">
+<RelativeLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/inputsPadding"
+    android:layout_weight="1">
+    <Button
+        android:id="@+id/inputs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:text="Inputs"/>
+    <TextView
+        android:id="@+id/genderText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change\nGender"
+        android:layout_toLeftOf="@+id/genderButton"
+        android:layout_toStartOf="@+id/genderButton" />
+    <ImageButton
+        android:id="@+id/genderButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        />
+</RelativeLayout>
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingBottom="@dimen/inputsPadding"
+        android:paddingTop="@dimen/inputsPadding"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:layout_weight="1">
+<TextView
+    android:id="@+id/bmiAge"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Age"
+    android:textSize="@dimen/inputsText"
+    android:layout_toLeftOf="@+id/bimAgeInput"
+    android:layout_toStartOf="@+id/bimAgeInput"
+    android:layout_centerInParent="true" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned"
+            android:ems="5"
+            android:id="@+id/bimAgeInput"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="/DOB"
+            android:id="@+id/textView4"
+            android:layout_alignBottom="@+id/bmiAge"
+            android:layout_toRightOf="@+id/bimAgeInput"
+            android:layout_toEndOf="@+id/bimAgeInput" />
+    </RelativeLayout>
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingBottom="@dimen/inputsPadding"
+        android:paddingTop="@dimen/inputsPadding"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:layout_weight="1">
+        <TextView
+            android:id="@+id/bmiWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Weight"
+            android:textSize="@dimen/inputsText"
+            android:layout_toLeftOf="@+id/bmiWeightInput"
+            android:layout_toStartOf="@+id/bmiWeightInput"
+            android:layout_centerInParent="true" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:id="@+id/bmiWeightInput"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:inputType="numberDecimal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kg"
+
+            android:layout_alignBottom="@+id/bmiWeight"
+            android:layout_toRightOf="@+id/bmiWeightInput"
+            android:layout_toEndOf="@+id/bmiWeightInput" />
+    </RelativeLayout>
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingBottom="@dimen/inputsPadding"
+        android:paddingTop="@dimen/inputsPadding"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:layout_weight="1">
+        <TextView
+            android:id="@+id/bmiHeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Height"
+            android:textSize="@dimen/inputsText"
+            android:layout_toLeftOf="@+id/bmiHeightInput_ft"
+            android:layout_toStartOf="@+id/bmiHeightInput_ft"
+            android:layout_centerInParent="true" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned"
+            android:ems="5"
+            android:id="@+id/bmiHeightInput_ft"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ft"
+
+            android:layout_alignBottom="@+id/bmiHeight"
+            android:layout_toRightOf="@+id/bmiHeightInput_ft"
+            android:layout_toEndOf="@+id/bmiHeightInput_ft"
+            android:id="@+id/textView5" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned"
+            android:ems="2"
+            android:id="@+id/bmiHeightInput_in"
+            android:layout_alignBottom="@+id/bmiHeightInput_ft"
+            android:layout_toRightOf="@+id/textView5" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="in"
+            android:id="@+id/textView6"
+            android:layout_alignTop="@+id/textView5"
+            android:layout_toRightOf="@+id/bmiHeightInput_in"
+            android:layout_toEndOf="@+id/bmiHeightInput_in" />
+    </RelativeLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:layout_weight="1">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:id="@+id/bmiSave" />
+    </LinearLayout>
+</LinearLayout>

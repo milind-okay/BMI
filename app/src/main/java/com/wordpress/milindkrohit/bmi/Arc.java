@@ -16,7 +16,7 @@ public class Arc extends View {
 
     Paint paint;
     Path path;
-    float m1,m2,m3,m4;
+    float m1,m2,m3,m4,m5,m;
 
     public Arc(Context context) {
         super(context);
@@ -46,10 +46,12 @@ public class Arc extends View {
         paint.setStyle(Paint.Style.STROKE);
 
     }
-    public  void setValue(double x,double y, double z ){
-        m1  = (float)(x*6);
-        m2  = (float)(y*6);
-        m3  = 36;
+    public  void setValue(double x,double y, double z,double p,double q ){
+        m1  = (float)(x*4);
+        m2  = (float)(y*4);
+        m3  = (float)(z*4);
+        m4 = (float)(p*4);
+        m5 = 36;
     }
 
 
@@ -72,29 +74,36 @@ public class Arc extends View {
    * sweepAngle - Sweep angle (in degrees) measured clockwise
    * useCenter - If true, include the center of the oval in the arc, and close it if it is being stroked. This will draw a wedge
    * paint - The paint used to draw the arc
-   */
+   */   float startAngle = 180;
         oval.set(x - rad, y - rad, x + rad, y + rad);
         paint.setColor(Color.BLUE);
-        canvas.drawArc(oval, 180, m1, false, paint);
+        canvas.drawArc(oval, startAngle, m1, false, paint);
 
         paint.setColor(Color.GREEN);
-
-        canvas.drawArc(oval, (180 + m1) % 360,  m2, false, paint);
+        startAngle+=m1;
+        canvas.drawArc(oval, startAngle, m2, false, paint);
+        paint.setColor(Color.rgb(9, 2, 0));
+        startAngle+=m2;
+        canvas.drawArc(oval, startAngle, m3, false, paint);
+        paint.setColor(Color.rgb(14, 1, 0));
+        startAngle+=m3;
+        canvas.drawArc(oval, startAngle, m4, false, paint);
         paint.setColor(Color.RED);
-
-        canvas.drawArc(oval, (180 + m1 + m2) % 360, 180 - (m1 + m2), false, paint);
+        startAngle+=m4;
+        canvas.drawArc(oval, startAngle, 180 - (startAngle - 180), false, paint);
 
         paint.setColor(Color.WHITE);
-        canvas.drawArc(oval, (180 + m3) % 360, 1, false, paint);
+        startAngle = 180 + m5;
+        canvas.drawArc(oval, startAngle, 1, false, paint);
+        startAngle+=m5;
 
+        canvas.drawArc(oval, startAngle , 1, false, paint);
+        startAngle+=m5;
 
-        canvas.drawArc(oval, (180 + 2*m3) % 360, 1, false, paint);
+        canvas.drawArc(oval, startAngle, 1, false, paint);
+        startAngle+=m5;
 
-
-        canvas.drawArc(oval, (180 + 3 * m3) % 360, 1, false, paint);
-
-
-        canvas.drawArc(oval,(180 + 4*m3)%360, 1, false, paint);
+        canvas.drawArc(oval, startAngle, 1, false, paint);
 
 
 

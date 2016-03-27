@@ -1,9 +1,11 @@
 package com.wordpress.milindkrohit.bmi;
 
+import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -22,7 +24,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
-public class MainBMI extends AppCompatActivity {
+public class MainBMI extends AppCompatActivity implements DialogComm{
     Animation animRotate;
     ImageView mneedle;
     Button mbuttonok;
@@ -39,7 +41,7 @@ public class MainBMI extends AppCompatActivity {
         LinearLayout l = (LinearLayout)findViewById(R.id.bmiL);
         RelativeLayout l1 = (RelativeLayout)findViewById(R.id.bmiL1);
         Arc pcc = new Arc (this);
-        pcc.setValue(12,2,16);
+        pcc.setValue(12,2,5,10,15);
         Bitmap result = Bitmap.createBitmap(125, 125, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(result);
         pcc.draw(canvas);
@@ -63,6 +65,7 @@ public class MainBMI extends AppCompatActivity {
                 turn(mNeedleAngle*6);
             }
         });
+        showMyDialog(1);
 
 
     }
@@ -108,4 +111,14 @@ public class MainBMI extends AppCompatActivity {
 
     }
 
+    @Override
+    public void DialogButtonAction(int a) {
+
+    }
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    public void showMyDialog( int dNum){
+        BMIInput gameAlert= new BMIInput();
+
+        gameAlert.show(getFragmentManager(), "gameAlert");
+    }
 }
