@@ -46,6 +46,11 @@ public class Arc extends View {
         paint.setStyle(Paint.Style.STROKE);
 
     }
+    public  void setValue(double x,double y, double z ){
+        m1  = (float)(x*6);
+        m2  = (float)(y*6);
+        m3  = 36;
+    }
 
 
     @Override
@@ -54,8 +59,8 @@ public class Arc extends View {
         super.onDraw(canvas);
         float rad = 375,x,y;
         x = (float)getWidth()/2;
-        y = (float)getHeight() - ((float)getHeight()/8);
-        m1 = 35;
+        y = (float)getHeight() - ((float)getHeight()/6);
+
         final RectF oval = new RectF();
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(102.0f);
@@ -70,28 +75,26 @@ public class Arc extends View {
    */
         oval.set(x - rad, y - rad, x + rad, y + rad);
         paint.setColor(Color.BLUE);
-        canvas.drawArc(oval, 180, 2 * m1, false, paint);
-        paint.setColor(Color.BLACK);
-       // m1 = 125+ m1;
-        canvas.drawArc(oval,(180 + m1)%360, 1, false, paint);
+        canvas.drawArc(oval, 180, m1, false, paint);
+
         paint.setColor(Color.GREEN);
-       // m2 += m1;
-        canvas.drawArc(oval, (180 + 2*m1 )%360, 2*m1, false, paint);
+
+        canvas.drawArc(oval, (180 + m1) % 360,  m2, false, paint);
         paint.setColor(Color.RED);
-        // m3 += m2;
-        canvas.drawArc(oval,(180 + 4*m1)%360,180 - 4*m1, false, paint);
-        paint.setColor(Color.BLACK);
-        // m1 = 125+ m1;
-        canvas.drawArc(oval,(180 + m1)%360, 1, false, paint);
-        paint.setColor(Color.BLACK);
-        // m1 = 125+ m1;
-        canvas.drawArc(oval,(180 + 2*m1)%360, 1, false, paint);
-        paint.setColor(Color.BLACK);
-        // m1 = 125+ m1;
-        canvas.drawArc(oval,(180 + 3*m1)%360, 1, false, paint);
-        paint.setColor(Color.BLACK);
-        // m1 = 125+ m1;
-        canvas.drawArc(oval,(180 + 4*m1)%360, 1, false, paint);
+
+        canvas.drawArc(oval, (180 + m1 + m2) % 360, 180 - (m1 + m2), false, paint);
+
+        paint.setColor(Color.WHITE);
+        canvas.drawArc(oval, (180 + m3) % 360, 1, false, paint);
+
+
+        canvas.drawArc(oval, (180 + 2*m3) % 360, 1, false, paint);
+
+
+        canvas.drawArc(oval, (180 + 3 * m3) % 360, 1, false, paint);
+
+
+        canvas.drawArc(oval,(180 + 4*m3)%360, 1, false, paint);
 
 
 

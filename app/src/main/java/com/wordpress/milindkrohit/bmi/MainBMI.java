@@ -1,7 +1,9 @@
 package com.wordpress.milindkrohit.bmi;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Matrix;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,14 +14,20 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 public class MainBMI extends AppCompatActivity {
     Animation animRotate;
-    ImageButton needle;
-    View v;
+    ImageView mneedle;
+    Button mbuttonok;
+    double mAge,mWeight,mHeight;
+    float mNeedleAngle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,20 +39,39 @@ public class MainBMI extends AppCompatActivity {
         LinearLayout l = (LinearLayout)findViewById(R.id.bmiL);
         RelativeLayout l1 = (RelativeLayout)findViewById(R.id.bmiL1);
         Arc pcc = new Arc (this);
+        pcc.setValue(12,2,16);
         Bitmap result = Bitmap.createBitmap(125, 125, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(result);
         pcc.draw(canvas);
-       animRotate = AnimationUtils.loadAnimation(getApplicationContext(),
-                R.anim.rotate);
+      // animRotate = AnimationUtils.loadAnimation(getApplicationContext(),
+            //    R.anim.rotate);
         l1.addView(pcc);
         // start the animation
-        needle.startAnimation(animRotate);
+       // needle.startAnimation(animRotate);
+
+        Bitmap bmp = BitmapFactory.decodeResource(getResources(), R.drawable.ic_1);
+        // Getting width & height of the given image.
+        int w = bmp.getWidth();
+        int h = bmp.getHeight();
+
+        mneedle.setImageBitmap(bmp);
+
+
+        mbuttonok.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                mNeedleAngle = (float)(mWeight/(mHeight*mHeight));
+                turn(mNeedleAngle*6);
+            }
+        });
 
 
     }
     public void init(){
-       // v.findViewById(R.id.vMain);
-        needle = (ImageButton)findViewById(R.id.needle);
+
+        mbuttonok = (Button) findViewById(R.id.buttonok);
+        mneedle = (ImageView) findViewById(R.id.needle );
+        mWeight = 60;
+        mHeight = 1.54;
     }
 
     @Override
@@ -68,4 +95,17 @@ public class MainBMI extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+    public void turn(float degrees)
+    {
+
+
+        RotateAnimation anim = new RotateAnimation(0, degrees,Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,0.5f);
+        anim.setInterpolator(new LinearInterpolator());
+        anim.setDuration(300);
+        anim.setFillEnabled(true);
+        anim.setFillAfter(true);
+       mneedle.startAnimation(anim);
+
+    }
+
 }
