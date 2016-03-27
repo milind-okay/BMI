@@ -46,9 +46,11 @@ public class BMIInput extends DialogFragment {
             view = inflater.inflate(R.layout.bim_inputs, null);
 
         }else if(m==2){
-            view = inflater.inflate(R.layout.bim_inputs, null);
+            view = inflater.inflate(R.layout.bmi_table, null);
+        }else if(m==3){
+            view = inflater.inflate(R.layout.bmi_message, null);
         }else{
-            view = inflater.inflate(R.layout.bim_inputs, null);
+            view = inflater.inflate(R.layout.bmi_tip, null);
         }
       /*   if(buttonType)
             builder.setMessage(displayMessageS);

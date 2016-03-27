@@ -63,6 +63,7 @@ public class MainBMI extends AppCompatActivity implements DialogComm{
             public void onClick(View v) {
                 mNeedleAngle = (float)(mWeight/(mHeight*mHeight));
                 turn(mNeedleAngle*6);
+                showMyDialog(4);
             }
         });
         showMyDialog(1);

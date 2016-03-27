@@ -54,7 +54,7 @@
             android:textColor="@color/weight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="<18.5"/>
+            android:text="18.5"/>
     </LinearLayout>
 </LinearLayout>
         <LinearLayout
@@ -89,7 +89,7 @@
                     android:textColor="@color/weight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="<18.5"/>
+                    android:text="18.5"/>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -124,7 +124,7 @@
                     android:textColor="@color/weight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="<18.5"/>
+                    android:text="18.5"/>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -159,7 +159,7 @@
                     android:textColor="@color/weight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="<18.5"/>
+                    android:text="18.5"/>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -194,7 +194,7 @@
                     android:textColor="@color/weight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="<18.5"/>
+                    android:text="18.5"/>
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
