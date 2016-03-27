@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 
 /**
@@ -23,6 +24,8 @@ public class BMIInput extends DialogFragment {
     DialogComm dialogComm;
     String title,displayMessageS;
     int m;
+    String tip_weight,tip_str,underweight,normal,overweight,obese,moobese;
+    TextView mtip_weight,mtip_str,munderweight,mnormal,moverweight,mobese,mmoobese;
     View view;
     boolean iconType,buttonType;
     EditText mAge,mHeight_ft,mWeight,mHeight_in;
@@ -35,6 +38,17 @@ public class BMIInput extends DialogFragment {
     }
     public void setDialogType(int a){
         m  = a;
+    }
+    public void setTip(String weight,String months){
+        tip_weight = weight;
+        tip_str = months;
+    }
+    public void setBmiTable(String s1,String s2,String s3,String s4,String s5){
+        underweight = s1;
+        normal = s2;
+        overweight = s3;
+        obese = s4;
+        moobese = s5;
     }
 
     @Override

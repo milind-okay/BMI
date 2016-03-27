@@ -61,8 +61,8 @@ public class MainBMI extends AppCompatActivity implements DialogComm{
 
         mbuttonok.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                mNeedleAngle = (float)(mWeight/(mHeight*mHeight));
-                turn(mNeedleAngle*6);
+                mNeedleAngle = (float) (mWeight / (mHeight * mHeight));
+                turn(mNeedleAngle * 6);
                 showMyDialog(4);
             }
         });
@@ -120,6 +120,11 @@ public class MainBMI extends AppCompatActivity implements DialogComm{
     public void showMyDialog( int dNum){
         BMIInput dialogAlert= new BMIInput();
        dialogAlert.setDialogType(dNum);
+        if(dNum == 2){
+            dialogAlert.setBmiTable("<8","2-3","2-3","2-3","2-3");
+        }else if(dNum == 4){
+            dialogAlert.setTip("5.3","2-3");
+        }
         dialogAlert.show(getFragmentManager(), "gameAlert");
     }
 }
