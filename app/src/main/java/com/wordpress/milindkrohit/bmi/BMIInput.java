@@ -1,19 +1,20 @@
 package com.wordpress.milindkrohit.bmi;
+
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 /**
@@ -22,6 +23,7 @@ import android.widget.TextView;
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class BMIInput extends DialogFragment {
     DialogComm dialogComm;
+    Dialog dialog;
     String title,displayMessageS;
     int m;
     String tip_weight,tip_str,underweight,normal,overweight,obese,moobese;
@@ -29,6 +31,8 @@ public class BMIInput extends DialogFragment {
     View view;
     boolean iconType,buttonType;
     EditText mAge,mHeight_ft,mWeight,mHeight_in;
+    private Button button;
+    private String age_input,weight_input,height_ft,height_in;
 
     @Override
     public void onAttach(Activity activity) {
@@ -56,8 +60,47 @@ public class BMIInput extends DialogFragment {
 
         AlertDialog.Builder builder = new  AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
+
         if(m==1) {
             view = inflater.inflate(R.layout.bim_inputs, null);
+            // set prompts.xml to alertdialog builder
+
+            button = (Button)view.findViewById(R.id.bmiSave);
+            final EditText mAge = (EditText) view
+                    .findViewById(R.id.bimAgeInput);
+            final EditText mHeight_ft = (EditText)view.findViewById(R.id.bmiHeightInput_ft);
+            final EditText mHeight_in = (EditText)view.findViewById(R.id.bmiHeightInput_in);
+            final EditText mWeight=(EditText)view.findViewById(R.id.bmiWeightInput);
+
+           // builder.setView(view);
+            // set dialog message
+            builder
+                    .setCancelable(true)
+                    .setPositiveButton("Save",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog,int id) {
+
+                                    //  result.setText(userInput.getText());
+                                    age_input = mAge.getText().toString();
+                                    weight_input=mWeight.getText().toString();
+                                    height_ft=mHeight_ft.getText().toString();
+                                    height_in=mHeight_in.getText().toString();
+                                }
+                            })
+                    .setNegativeButton("Cancel",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog,int id) {
+                                    dialog.cancel();
+                                }
+                            });
+
+
+
+
+            builder.setView(view);
+            dialog = builder.create();
+           // save(view);
+
 
         }else if(m==2){
             view = inflater.inflate(R.layout.bmi_table, null);
@@ -102,10 +145,23 @@ public class BMIInput extends DialogFragment {
                 dialogComm.DialogButtonAction(0);
             }
         });*/
-        builder.setView(view);
-        Dialog dialog = builder.create();
+
+
+
         return dialog;
     }
+   /* @TargetApi(Build.VERSION_CODES.M)
+    public void save(View view)
+    {
+        SharedPreferences sharedPreferences=getActivity().getSharedPreferences("MyData", getContext().MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("Age", age_input.toString());
+        editor.putString("weight",weight_input.toString());
+        editor.putString("height_ft",height_ft.toString());
+        editor.putString("height_in",height_in.toString());
+        editor.commit();
+        Toast.makeText(getContext(),"Data Saved Succesfully ",Toast.LENGTH_LONG).show();
+    }*/
 /*
     @Nullable
     @Override
@@ -114,6 +170,7 @@ public class BMIInput extends DialogFragment {
 
     }*/
 }
+
 
 interface DialogComm{
     void DialogButtonAction(int a);
