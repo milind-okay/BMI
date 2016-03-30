@@ -141,8 +141,6 @@ public class MainBMI extends AppCompatActivity implements DialogComm{
     }
     public void turn(float degrees)
     {
-
-
         RotateAnimation anim = new RotateAnimation(0, degrees,Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,0.5f);
         anim.setInterpolator(new LinearInterpolator());
         anim.setDuration(300);
