@@ -25,7 +25,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 public class MainBMI extends AppCompatActivity implements DialogComm{
-    Animation animRotate;
     ImageView mneedle;
     Button mbuttonok;
     double mAge,mWeight,mHeight;
@@ -38,10 +37,16 @@ public class MainBMI extends AppCompatActivity implements DialogComm{
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         init();
-        LinearLayout l = (LinearLayout)findViewById(R.id.bmiL);
+
+        Bitmap bmp = BitmapFactory.decodeResource(getResources(), R.drawable.needle);
+        // Getting width & height of the given image.
+        int w = bmp.getWidth();
+        int h = bmp.getHeight();
+
+        mneedle.setImageBitmap(bmp);
         RelativeLayout l1 = (RelativeLayout)findViewById(R.id.bmiL1);
         Arc pcc = new Arc (this);
-        pcc.setValue(12,2,5,10,15);
+        pcc.setValue(3.5,6.5,5,10,15);
         Bitmap result = Bitmap.createBitmap(125, 125, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(result);
         pcc.draw(canvas);
@@ -51,19 +56,13 @@ public class MainBMI extends AppCompatActivity implements DialogComm{
         // start the animation
        // needle.startAnimation(animRotate);
 
-        Bitmap bmp = BitmapFactory.decodeResource(getResources(), R.drawable.ic_1);
-        // Getting width & height of the given image.
-        int w = bmp.getWidth();
-        int h = bmp.getHeight();
-
-        mneedle.setImageBitmap(bmp);
 
 
         mbuttonok.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                mNeedleAngle = (float) (mWeight / (mHeight * mHeight));
+                mNeedleAngle = (float) (mWeight / (mHeight * mHeight)) - 15;
                 turn(mNeedleAngle * 6);
-                showMyDialog(4);
+                //showMyDialog(4);
             }
         });
         showMyDialog(1);

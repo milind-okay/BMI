@@ -47,11 +47,11 @@ public class Arc extends View {
 
     }
     public  void setValue(double x,double y, double z,double p,double q ){
-        m1  = (float)(x*4);
-        m2  = (float)(y*4);
-        m3  = (float)(z*4);
-        m4 = (float)(p*4);
-        m5 = 36;
+        m1  = (float)(x*6);
+        m2  = (float)(y*6);
+        m3  = (float)(z*6);
+        m4 = (float)(p*6);
+        m5 = 30;
     }
 
 
@@ -82,10 +82,10 @@ public class Arc extends View {
         paint.setColor(Color.GREEN);
         startAngle+=m1;
         canvas.drawArc(oval, startAngle, m2, false, paint);
-        paint.setColor(Color.rgb(9, 2, 0));
+        paint.setColor(Color.rgb(144,102, 3));
         startAngle+=m2;
         canvas.drawArc(oval, startAngle, m3, false, paint);
-        paint.setColor(Color.rgb(14, 1, 0));
+        paint.setColor(Color.rgb(204, 51, 10));
         startAngle+=m3;
         canvas.drawArc(oval, startAngle, m4, false, paint);
         paint.setColor(Color.RED);
@@ -93,19 +93,11 @@ public class Arc extends View {
         canvas.drawArc(oval, startAngle, 180 - (startAngle - 180), false, paint);
 
         paint.setColor(Color.WHITE);
-        startAngle = 180 + m5;
-        canvas.drawArc(oval, startAngle, 1, false, paint);
-        startAngle+=m5;
-
-        canvas.drawArc(oval, startAngle , 1, false, paint);
-        startAngle+=m5;
-
-        canvas.drawArc(oval, startAngle, 1, false, paint);
-        startAngle+=m5;
-
-        canvas.drawArc(oval, startAngle, 1, false, paint);
-
-
+        startAngle = 180;
+        for(int i=0;i<5;i++){
+            startAngle+=m5;
+            canvas.drawArc(oval, startAngle, 1, false, paint);
+        }
 
     }
 
