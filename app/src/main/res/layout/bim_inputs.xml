@@ -14,20 +14,39 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
-        android:text="Inputs"/>
+        android:text="Inputs"
+        android:background="#fc396df4"
+        android:textColor="#ffffff" />
     <TextView
         android:id="@+id/genderText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Change\nGender"
-        android:layout_toLeftOf="@+id/genderButton"
-        android:layout_toStartOf="@+id/genderButton" />
+        android:layout_toLeftOf="@+id/maleButton"
+        android:layout_toStartOf="@+id/femaleButton"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp" />
     <ImageButton
-        android:id="@+id/genderButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/maleButton"
+        android:layout_width="60dp"
+        android:layout_height="100dp"
         android:layout_alignParentRight="true"
-        />
+        android:background="@drawable/male_light1"
+        android:layout_marginRight="5dp" />
+    <ImageButton
+        android:id="@+id/femaleButton"
+        android:layout_width="60dp"
+        android:layout_height="100dp"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/female_light"
+        android:longClickable="true"
+        android:maxHeight="5dp"
+        android:maxWidth="5dp"
+        android:minHeight="5dp"
+        android:minWidth="5dp"
+        android:clickable="true"
+        android:layout_marginRight="69dp" />
+
 </RelativeLayout>
     <RelativeLayout
 
@@ -63,11 +82,13 @@
             android:id="@+id/textView4"
             android:layout_alignBottom="@+id/bmiAge"
             android:layout_toRightOf="@+id/bimAgeInput"
-            android:layout_toEndOf="@+id/bimAgeInput" />
+            android:layout_toEndOf="@+id/bimAgeInput"
+            android:layout_marginTop="10dp" />
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/textView4"
+            android:background="@drawable/date"
             android:layout_marginLeft="@dimen/inputsPadding"/>
     </RelativeLayout>
 
