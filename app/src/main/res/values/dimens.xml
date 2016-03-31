@@ -5,7 +5,7 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="inputsPadding">10dp</dimen>
     <dimen name="inputsText">20dp</dimen>
-    <dimen name="bmitablepadding">25dp</dimen>
+    <dimen name="bmitablepadding">15dp</dimen>
     <dimen name="bmi_tip_weight">35dp</dimen>
     <dimen name="finemargin">5dp</dimen>
     <dimen name="bmi_data">20dp</dimen>

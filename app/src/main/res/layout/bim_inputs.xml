@@ -28,26 +28,24 @@
             android:layout_marginTop="20dp" />
         <ImageButton
             android:id="@+id/maleButton"
-            android:layout_width="60dp"
-            android:layout_height="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:background="@drawable/male_light1"
-            android:layout_marginRight="5dp"
+            android:background="@drawable/male_blue"
+            android:layout_margin = "@dimen/finemargin"
             android:clickable="true"
             android:contextClickable="true" />
         <ImageButton
             android:id="@+id/femaleButton"
-            android:layout_width="60dp"
-            android:layout_height="100dp"
-            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="@drawable/female_light"
             android:longClickable="true"
-            android:maxHeight="5dp"
-            android:maxWidth="5dp"
-            android:minHeight="5dp"
-            android:minWidth="5dp"
             android:clickable="true"
-            android:layout_marginRight="69dp" />
+            android:layout_margin="@dimen/finemargin"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/maleButton"
+            android:layout_toStartOf="@+id/maleButton" />
 
     </RelativeLayout>
     <RelativeLayout
