@@ -4,8 +4,9 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="weight">#FFFFFF</color>
-    <color name="frame">#b4b4b4</color>
-    <color name="frame_solid">#eee</color>
-    <color name="frame_background">#bcbcbc</color>
-    <color name="bmi_bgcolor">#FAF0A0</color>
+    <color name="underweight">#00A0F0</color>
+    <color name="normal">#00F278</color>
+    <color name="overweight">#f2bb06</color>
+    <color name="obese">#9f000b</color>
+    <color name="red">#FF0000</color>
 </resources>

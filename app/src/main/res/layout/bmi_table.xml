@@ -17,49 +17,13 @@
 
     </RelativeLayout>
     <RelativeLayout
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:paddingLeft="@dimen/bmitablepadding"
-        android:layout_marginRight="@dimen/bmitablepadding"
+
+        android:layout_margin="@dimen/bmitablepadding"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-<LinearLayout
-    android:id="@+id/l1"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:weightSum="3">
-    <LinearLayout
-        android:layout_margin="1dp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:layout_weight="2">
-        <TextView
-            android:padding="@dimen/inputsPadding"
-            android:textSize="@dimen/inputsText"
-            android:textColor="@color/weight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Underweight"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_margin="1dp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:layout_weight="1">
-        <TextView
-            android:padding="@dimen/inputsPadding"
-            android:textSize="@dimen/inputsText"
-            android:textColor="@color/weight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="18.5"/>
-    </LinearLayout>
-</LinearLayout>
         <LinearLayout
-            android:id="@+id/l2"
-            android:layout_below="@id/l1"
+            android:id="@+id/l1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:weightSum="3">
@@ -67,7 +31,7 @@
                 android:layout_margin="1dp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
+                android:background="@color/underweight"
                 android:layout_weight="2">
                 <TextView
                     android:padding="@dimen/inputsPadding"
@@ -81,7 +45,42 @@
                 android:layout_margin="1dp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
+                android:background="@color/underweight"
+                android:layout_weight="1">
+                <TextView
+                    android:padding="@dimen/inputsPadding"
+                    android:textSize="@dimen/inputsText"
+                    android:textColor="@color/weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="18.5"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/l2"
+            android:layout_below="@id/l1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3">
+            <LinearLayout
+                android:layout_margin="1dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/normal"
+                android:layout_weight="2">
+                <TextView
+                    android:padding="@dimen/inputsPadding"
+                    android:textSize="@dimen/inputsText"
+                    android:textColor="@color/weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Normal"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_margin="1dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/normal"
                 android:layout_weight="1">
                 <TextView
                     android:padding="@dimen/inputsPadding"
@@ -102,7 +101,7 @@
                 android:layout_margin="1dp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
+                android:background="@color/overweight"
                 android:layout_weight="2">
                 <TextView
                     android:padding="@dimen/inputsPadding"
@@ -110,13 +109,13 @@
                     android:textColor="@color/weight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Underweight"/>
+                    android:text="Overweight"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_margin="1dp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
+                android:background="@color/overweight"
                 android:layout_weight="1">
                 <TextView
                     android:padding="@dimen/inputsPadding"
@@ -137,7 +136,7 @@
                 android:layout_margin="1dp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
+                android:background="@color/obese"
                 android:layout_weight="2">
                 <TextView
                     android:padding="@dimen/inputsPadding"
@@ -145,13 +144,13 @@
                     android:textColor="@color/weight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Underweight"/>
+                    android:text="obese"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_margin="1dp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
+                android:background="@color/obese"
                 android:layout_weight="1">
                 <TextView
                     android:padding="@dimen/inputsPadding"
@@ -172,7 +171,7 @@
                 android:layout_margin="1dp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
+                android:background="@color/red"
                 android:layout_weight="2">
                 <TextView
                     android:padding="@dimen/inputsPadding"
@@ -180,13 +179,13 @@
                     android:textColor="@color/weight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Underweight"/>
+                    android:text="Morbidly Obese"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_margin="1dp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
+                android:background="@color/red"
                 android:layout_weight="1">
                 <TextView
                     android:padding="@dimen/inputsPadding"

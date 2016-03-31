@@ -3,32 +3,53 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:weightSum="5">
-<RelativeLayout
+    <RelativeLayout
 
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingBottom="@dimen/inputsPadding"
-    android:layout_weight="1">
-    <Button
-        android:id="@+id/inputs"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:text="Inputs"/>
-    <TextView
-        android:id="@+id/genderText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Change\nGender"
-        android:layout_toLeftOf="@+id/genderButton"
-        android:layout_toStartOf="@+id/genderButton" />
-    <ImageButton
-        android:id="@+id/genderButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        />
-</RelativeLayout>
+        android:paddingBottom="@dimen/inputsPadding"
+        android:layout_weight="1">
+        <Button
+            android:id="@+id/inputs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="Inputs"
+            android:background="#fc396df4"
+            android:textColor="#ffffff" />
+        <TextView
+            android:id="@+id/genderText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Change\nGender"
+            android:layout_toLeftOf="@+id/maleButton"
+            android:layout_toStartOf="@+id/femaleButton"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="20dp" />
+        <ImageButton
+            android:id="@+id/maleButton"
+            android:layout_width="60dp"
+            android:layout_height="100dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/male_light1"
+            android:layout_marginRight="5dp"
+            android:clickable="true"
+            android:contextClickable="true" />
+        <ImageButton
+            android:id="@+id/femaleButton"
+            android:layout_width="60dp"
+            android:layout_height="100dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/female_light"
+            android:longClickable="true"
+            android:maxHeight="5dp"
+            android:maxWidth="5dp"
+            android:minHeight="5dp"
+            android:minWidth="5dp"
+            android:clickable="true"
+            android:layout_marginRight="69dp" />
+
+    </RelativeLayout>
     <RelativeLayout
 
         android:layout_width="match_parent"
@@ -37,15 +58,15 @@
         android:paddingTop="@dimen/inputsPadding"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:layout_weight="1">
-<TextView
-    android:id="@+id/bmiAge"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Age"
-    android:textSize="@dimen/inputsText"
-    android:layout_toLeftOf="@+id/bimAgeInput"
-    android:layout_toStartOf="@+id/bimAgeInput"
-    android:layout_centerInParent="true" />
+        <TextView
+            android:id="@+id/bmiAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Age"
+            android:textSize="@dimen/inputsText"
+            android:layout_toLeftOf="@+id/bimAgeInput"
+            android:layout_toStartOf="@+id/bimAgeInput"
+            android:layout_centerInParent="true" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -63,11 +84,13 @@
             android:id="@+id/textView4"
             android:layout_alignBottom="@+id/bmiAge"
             android:layout_toRightOf="@+id/bimAgeInput"
-            android:layout_toEndOf="@+id/bimAgeInput" />
+            android:layout_toEndOf="@+id/bimAgeInput"
+            android:layout_marginTop="10dp" />
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/textView4"
+            android:background="@drawable/date"
             android:layout_marginLeft="@dimen/inputsPadding"/>
     </RelativeLayout>
 
