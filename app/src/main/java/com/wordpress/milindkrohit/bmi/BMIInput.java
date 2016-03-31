@@ -197,7 +197,7 @@ public class BMIInput extends DialogFragment {
             {
                 img_buttonF.setBackgroundResource(R.drawable.female_blue);
                 ismale=false;
-                img_buttonM.setBackgroundResource(R.drawable.male_light);
+                img_buttonM.setBackgroundResource(R.drawable.male_light1);
             }
 
 
