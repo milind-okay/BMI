@@ -229,8 +229,9 @@ public class BMIInput extends DialogFragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        if(m==1)
-            dialogComm.showinput(age_input.toString(),weight_input.toString(),height_ft.toString(),height_in.toString(),gender.toString());
+        if (m == 1) {
+            dialogComm.showinput(age_input.toString(), weight_input.toString(), height_ft.toString(), height_in.toString(), gender.toString());
+        }
     }
 }
 
