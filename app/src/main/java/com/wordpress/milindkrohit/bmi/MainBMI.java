@@ -37,8 +37,9 @@ public class MainBMI extends AppCompatActivity implements DialogComm {
     private final String Default = "N/A";
     TextView ageTextView, weightTextView, heightTextViewIn, heightTextViewFt,text_2_part;
     ImageButton risk_button, target_button, info_button,edit_button;
-    ImageView imageView1,imageView2;
+    ImageView imageView1,imageView2,gauge_marks;
     String weight,height_in,height_ft,gender,mAge;
+    @TargetApi(Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,22 +48,20 @@ public class MainBMI extends AppCompatActivity implements DialogComm {
         setSupportActionBar(toolbar);
         init();
         Bitmap bmp = BitmapFactory.decodeResource(getResources(), R.drawable.needle);
-        // Getting width & height of the given image.
-        int w = bmp.getWidth();
-        int h = bmp.getHeight();
-
-        mneedle.setImageBitmap(bmp);
         RelativeLayout l1 = (RelativeLayout)findViewById(R.id.bmiL1);
+        ImageView ivBack = new ImageView(this);
+        ivBack.setImageResource(R.drawable.gauge_mark);
+
+        l1.addView(ivBack);
         Arc pcc = new Arc (this);
-        pcc.setValue(3.5,6.5,5,10,15);
+        pcc.setValue(3.5, 6.5, 5, 10, 15);
         Bitmap result = Bitmap.createBitmap(125, 125, Bitmap.Config.ARGB_8888);
+
         Canvas canvas = new Canvas(result);
         pcc.draw(canvas);
-        // animRotate = AnimationUtils.loadAnimation(getApplicationContext(),
-        //    R.anim.rotate);
+
         l1.addView(pcc);
 
-        // getting id for the buttons...
 
 
         mneedle.setImageBitmap(bmp);
@@ -164,7 +163,7 @@ public class MainBMI extends AppCompatActivity implements DialogComm {
         edit_button=(ImageButton)findViewById(R.id.editImage);
         imageView1=(ImageView)findViewById(R.id.imageView1);
         imageView2=(ImageView)findViewById(R.id.imageView2);
-
+        //gauge_marks = (ImageView)findViewById(R.id.gauge_marks);
         ageTextView = (TextView) findViewById(R.id.age_display);
         heightTextViewFt = (TextView) findViewById(R.id.height_ft_display);
         heightTextViewIn = (TextView) findViewById(R.id.height_in_display);
