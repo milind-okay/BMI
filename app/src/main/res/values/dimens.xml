@@ -9,4 +9,6 @@
     <dimen name="bmi_tip_weight">35dp</dimen>
     <dimen name="finemargin">5dp</dimen>
     <dimen name="bmi_data">20dp</dimen>
+    <dimen name="bmi_table_margin">5dp</dimen>
+    <dimen name="bmi_layout_margin">5dp</dimen>
 </resources>

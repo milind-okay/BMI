@@ -153,14 +153,7 @@ public class MainBMI extends AppCompatActivity implements DialogComm {
             }
         });
     }
-    public void display() {
-        ageTextView.setText(mAge);
-        weightTextView.setText(weight);
-        heightTextViewIn.setText(height_in);
-        heightTextViewFt.setText(height_ft);
-        String s=String.format("%.2f",mHeight);   // showing the ideal weight.........
-        text_2_part.setText(s);
-    }
+
     public void init() {
 
         //mbuttonok = (Button) findViewById(R.id.buttonok);
@@ -205,7 +198,7 @@ public class MainBMI extends AppCompatActivity implements DialogComm {
     public void turn(float degrees) {
         RotateAnimation anim = new RotateAnimation(0, degrees, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         anim.setInterpolator(new LinearInterpolator());
-        anim.setDuration(900);
+        anim.setDuration(800);
         anim.setFillEnabled(true);
         anim.setFillAfter(true);
         mneedle.startAnimation(anim);
@@ -233,7 +226,8 @@ public class MainBMI extends AppCompatActivity implements DialogComm {
             imageView2.setBackgroundResource(R.drawable.female_blue);
             imageView1.setBackgroundResource(R.drawable.male_light);
         }
-        display();
+
+
         try {
 
             mWeight = Double.parseDouble(weight);
@@ -244,8 +238,17 @@ public class MainBMI extends AppCompatActivity implements DialogComm {
         }catch (NumberFormatException e) {
             // p did not contain a valid double
         }
+        display();
         mNeedleAngle = (float) (mWeight / (mHeight * mHeight));
         turn(mNeedleAngle * 6);
+    }
+    public void display() {
+        ageTextView.setText(mAge);
+        weightTextView.setText(weight);
+        heightTextViewIn.setText(height_in);
+        heightTextViewFt.setText(height_ft);
+        String ideal_weight=String.format("%.2f",20*mHeight*mHeight);   // showing the ideal weight.........
+        text_2_part.setText(ideal_weight);
     }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
@@ -253,9 +256,11 @@ public class MainBMI extends AppCompatActivity implements DialogComm {
         BMIInput dialogAlert = new BMIInput();
         dialogAlert.setDialogType(dNum);
         if (dNum == 2) {
-            dialogAlert.setBmiTable("<8", "2-3", "2-3", "2-3", "2-3");
+            dialogAlert.setBmiTable("<8", "18.5-25", "25-30", "30-40", ">40");
         } else if (dNum == 4) {
-            dialogAlert.setTip("5.3", "2-3");
+            double weight_change =(20*mHeight*mHeight) - mWeight;
+            String weight=String.format("%.2f",weight_change);
+            dialogAlert.setTip(weight, "2-3",true);
         }
         dialogAlert.show(getFragmentManager(), "gameAlert");
     }

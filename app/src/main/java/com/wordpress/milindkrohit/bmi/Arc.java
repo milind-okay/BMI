@@ -59,7 +59,7 @@ public class Arc extends View {
     protected void onDraw(Canvas canvas) {
         // TODO Auto-generated method stub
         super.onDraw(canvas);
-        float rad = 375,x,y;
+        float rad = 360,x,y;
         x = (float)getWidth()/2;
         y = (float)getHeight() - ((float)getHeight()/6);
 

@@ -14,27 +14,29 @@
     android:background="#fff1f1">
 
     <RelativeLayout
-        android:shape="rectangle"
-        android:radius="10dp"
         android:id="@+id/bmiL1"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
         android:background="@drawable/frame">
 
-
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/gauge"
+    android:layout_marginBottom="5dp"
+    android:layout_marginTop="10dp"/>
 
     </RelativeLayout>
 
     <LinearLayout
         android:orientation="horizontal"
-        android:shape="rectangle"
-        android:radius="10dp"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:background="@drawable/frame"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="@dimen/bmi_layout_margin"
+        android:gravity="center"
         android:weightSum="10">
         <RelativeLayout
             android:layout_width="0dp"
@@ -44,7 +46,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Kg"
                 android:id="@+id/textView2"
                 android:textStyle="bold|italic"
@@ -76,7 +78,7 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="2"
             android:layout_margin="@dimen/finemargin">
 
@@ -84,22 +86,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/info_button"
-                android:background="@drawable/info"
+                android:background="@drawable/ic_info"
+                android:layout_margin="@dimen/finemargin"
                 />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/target_button"
-                android:background="@drawable/target"
+                android:background="@drawable/aim"
                 android:layout_marginTop="@dimen/finemargin"
-                android:layout_marginBottom="@dimen/finemargin" />
+                android:layout_marginBottom="@dimen/finemargin"
+                android:layout_margin="@dimen/finemargin"/>
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/risk_button"
                 android:background="@drawable/alert_gree"
+                android:layout_margin="@dimen/finemargin"
                 />
         </LinearLayout>
 
@@ -113,15 +118,22 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_gravity="center_horizontal"
-        android:weightSum="1"
+        android:weightSum="4"
         android:layout_weight="1"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="@dimen/bmi_layout_margin"
         android:background="@drawable/frame"
         android:baselineAligned="false">
 
-        <RelativeLayout
-            android:layout_width="84dp"
-            android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -129,32 +141,37 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Gender"
                 android:id="@+id/textView3"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true" />
+             />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="90dp"
+                    android:id="@+id/imageView1"
+                    android:background="@drawable/male_blue"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="@dimen/finemargin"
+                    android:layout_marginBottom="@dimen/finemargin"
+                    android:layout_marginTop="@dimen/finemargin"/>
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="90dp"
-                android:id="@+id/imageView1"
-                android:background="@drawable/male_blue"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginLeft="@dimen/finemargin"
-                android:layout_marginBottom="@dimen/finemargin"
-                android:layout_marginTop="@dimen/finemargin"/>
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="90dp"
+                    android:id="@+id/imageView2"
+                    android:background="@drawable/female_light"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignRight="@+id/textView3"
+                    android:layout_alignEnd="@+id/textView3"
+                    android:layout_marginLeft="@dimen/finemargin"
+                    android:layout_marginBottom="@dimen/finemargin"
+                    android:layout_marginTop="@dimen/finemargin"/>
+            </LinearLayout>
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="90dp"
-                android:id="@+id/imageView2"
-                android:background="@drawable/female_light"
-                android:layout_alignParentBottom="true"
-                android:layout_alignRight="@+id/textView3"
-                android:layout_alignEnd="@+id/textView3"
-                android:layout_marginLeft="@dimen/finemargin"
-                android:layout_marginBottom="@dimen/finemargin"
-                android:layout_marginTop="@dimen/finemargin"/>
+            </LinearLayout>
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -164,28 +181,32 @@
                 android:background="@drawable/line"
                 android:layout_toRightOf="@+id/imageView2"
                 android:layout_toEndOf="@+id/imageView2" />
-        </RelativeLayout>
+        </LinearLayout>
 
-        <RelativeLayout
-            android:layout_width="77dp"
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="match_parent">
-
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Age"
-                android:id="@+id/age_textview"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true" />
+                android:layout_margin="@dimen/finemargin"
+
+               />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/age_display"
-                android:layout_below="@+id/age_textview"
-                android:layout_centerHorizontal="true"
+                android:layout_margin="@dimen/finemargin"
                 android:textColor="@color/underweight" />
 
             <TextView
@@ -193,10 +214,9 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Years"
-                android:id="@+id/textView7"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/age_display"
-                android:layout_marginTop="30dp" />
+                android:layout_margin="@dimen/finemargin"
+                 />
+</LinearLayout>
 
             <ImageView
                 android:layout_width="fill_parent"
@@ -208,109 +228,97 @@
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true" />
-        </RelativeLayout>
+        </LinearLayout>
 
-        <RelativeLayout
-            android:layout_width="80dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.14">
-
-            <TextView
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Weight"
-                android:id="@+id/textView8"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Age"
+                    android:layout_margin="@dimen/finemargin"
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/weight_display"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_below="@+id/textView8"
-                android:layout_centerHorizontal="true"
-                android:textColor="@color/underweight" />
+                    />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Kg"
-                android:id="@+id/textView9"
-                android:layout_below="@+id/weight_display"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:id="@+id/weight_display"
+                    android:layout_margin="@dimen/finemargin"
+                    android:textColor="@color/underweight" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Years"
+                    android:layout_margin="@dimen/finemargin"
+                    />
+            </LinearLayout>
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageView4"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
                 android:background="@drawable/line"
                 android:layout_alignParentTop="true"
-                android:layout_toRightOf="@+id/textView8"
-                android:layout_toEndOf="@+id/textView8" />
+                android:layout_toRightOf="@+id/textView7"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+        </LinearLayout>
 
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="84dp"
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.33">
+            android:gravity="center"
+            android:layout_weight="1">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Height"
-                android:id="@+id/textView10"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true" />
+                android:layout_margin="@dimen/finemargin"
+
+                />
 
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true">
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                >
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/height_ft_display"
-                    android:layout_below="@+id/height_in_display"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginLeft="15dp"
+                    android:textColor="@color/underweight"
                     android:textSize="@dimen/bmi_data"
-                    android:textColor="@color/underweight" />
+                    android:layout_margin="@dimen/finemargin"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:text="ft"
-                    android:id="@+id/textView11"
-                    android:layout_below="@+id/textView10"
-                    android:layout_centerHorizontal="true"
-
-                    android:layout_marginTop="30dp"
-                    android:layout_marginLeft="5dp" />
+                   />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/height_in_display"
-                    android:layout_centerHorizontal="true"
-                    android:layout_below="@+id/textView10"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_margin="@dimen/finemargin"
                     android:textSize="@dimen/bmi_data"
                     android:textColor="@color/underweight" />
 
@@ -319,30 +327,22 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:text="in"
-                    android:id="@+id/textView12"
-                    android:layout_below="@+id/height_in_display"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginLeft="5dp" />
+                  />
 
             </LinearLayout>
 
             <ImageButton
-                android:layout_width="31dp"
-                android:layout_height="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:id="@+id/editImage"
-                android:layout_alignRight="@+id/textView10"
-                android:layout_alignEnd="@+id/textView10"
+
                 android:background="@drawable/edit"
-                android:layout_below="@+id/height_ft_display"
-                android:layout_alignLeft="@+id/textView12"
-                android:layout_alignStart="@+id/textView12"
+
                 android:layout_alignParentBottom="true"
                 android:layout_gravity="bottom"
-                android:layout_marginBottom="10dp"
-                android:layout_marginRight="20dp" />
+               />
 
-        </RelativeLayout>
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

@@ -29,7 +29,7 @@ public class BMIInput extends DialogFragment {
     String tip_weight,tip_str,underweight,normal,overweight,obese,moobese;
     TextView mtip_weight,mtip_str,munderweight,mnormal,moverweight,mobese,mmoobese;
     View view;
-    boolean iconType,buttonType;
+    boolean loss_gain;
     EditText mAge,mHeight_ft,mWeight,mHeight_in;
     private Button button;
     private ImageButton img_buttonM,img_buttonF;
@@ -46,9 +46,10 @@ public class BMIInput extends DialogFragment {
     public void setDialogType(int a){
         m  = a;
     }
-    public void setTip(String weight,String months){
+    public void setTip(String weight,String months,boolean loss_gain){
         tip_weight = weight;
         tip_str = months;
+        this.loss_gain = loss_gain;
     }
     public void setBmiTable(String s1,String s2,String s3,String s4,String s5){
         underweight = s1;
@@ -107,6 +108,9 @@ public class BMIInput extends DialogFragment {
             dialog = builder.create();
         }else{
             view = inflater.inflate(R.layout.bmi_tip, null);
+            TextView weight = (TextView) view.findViewById(R.id.bmi_tip_weight);
+            weight.setText(tip_weight + " Kgs");
+
             builder.setView(view);
             dialog = builder.create();
         }
@@ -197,7 +201,7 @@ public class BMIInput extends DialogFragment {
             {
                 img_buttonF.setBackgroundResource(R.drawable.female_blue);
                 ismale=false;
-                img_buttonM.setBackgroundResource(R.drawable.male_light1);
+                img_buttonM.setBackgroundResource(R.drawable.male_light);
             }
 
 
