@@ -61,13 +61,18 @@ public class Arc extends View {
     protected void onDraw(Canvas canvas) {
         // TODO Auto-generated method stub
         super.onDraw(canvas);
-        float rad = 377, x, y;
+        float rad, x, y;
         x = (float) getWidth() / 2;
         y = (float) getHeight() - ((float) getHeight() / 6);
+        if(y <x){
+           rad = y - ((float) getHeight() / 4);
+        }else{
+            rad = x - (x/4);
+        }
 
         final RectF oval = new RectF();
         paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeWidth(102.0f);
+        paint.setStrokeWidth(80.0f);
 
         float startAngle = 180;
         oval.set(x - rad, y - rad, x + rad, y + rad);

@@ -72,18 +72,7 @@ public class MainBMI extends AppCompatActivity implements DialogComm {
 
         if (!(mAge.equals(Default) || weight.equals(Default) || height_in.equals(Default) || height_ft.equals(Default) || gender.equals(Default))) {
 
-            // convert string to doubles.....
-            // check for the inch measurement....
-            try {
-                // Make use of autoboxing.  It's also easier to read.
-                age = Double.parseDouble(mAge);
-                mWeight = Double.parseDouble(weight);
-                heightFt = Double.parseDouble(height_ft);
-                heightIn = Double.parseDouble(height_in);
-                mHeight = 0.0254 * (heightFt * 12 + heightIn);
-            } catch (NumberFormatException e) {
-                // p did not contain a valid double
-            }
+            caValues();
             display();
             mNeedleAngle = (float) (mWeight / (mHeight * mHeight)) - 15;
             turn(mNeedleAngle * 6);
@@ -100,17 +89,7 @@ public class MainBMI extends AppCompatActivity implements DialogComm {
             height_ft = sharedPreferences.getString("height_ft", Default);
             height_in = sharedPreferences.getString("height_in", Default);
             gender = sharedPreferences.getString("gender", Default);
-            try {
-                // Make use of autoboxing.  It's also easier to read.
-                age = Double.parseDouble(mAge);
-                mWeight = Double.parseDouble(weight);
-                heightFt = Double.parseDouble(height_ft);
-                heightIn = Double.parseDouble(height_in);
-                mHeight = 0.0254 * (heightFt * 12 + heightIn);
-
-            } catch (NumberFormatException e) {
-                // p did not contain a valid double
-            }
+            caValues();
             display();
         }
         if (gender == "male") {
@@ -217,8 +196,14 @@ public class MainBMI extends AppCompatActivity implements DialogComm {
             imageView2.setBackgroundResource(R.drawable.female_blue);
             imageView1.setBackgroundResource(R.drawable.male_light);
         }
+        caValues();
 
 
+        display();
+        mNeedleAngle = (float) (mWeight / (mHeight * mHeight));
+        turn(mNeedleAngle * 6);
+    }
+    public void caValues(){
         try {
 
             mWeight = Double.parseDouble(weight);
@@ -229,9 +214,6 @@ public class MainBMI extends AppCompatActivity implements DialogComm {
         } catch (NumberFormatException e) {
             // p did not contain a valid double
         }
-        display();
-        mNeedleAngle = (float) (mWeight / (mHeight * mHeight));
-        turn(mNeedleAngle * 6);
     }
 
     public void display() {
