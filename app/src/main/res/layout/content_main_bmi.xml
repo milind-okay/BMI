@@ -238,7 +238,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="Age"
+                    android:text="Weight"
                     android:layout_margin="@dimen/finemargin"
 
                     />
@@ -255,7 +255,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="Years"
+                    android:text="Kgs"
                     android:layout_margin="@dimen/finemargin"
                     />
             </LinearLayout>
