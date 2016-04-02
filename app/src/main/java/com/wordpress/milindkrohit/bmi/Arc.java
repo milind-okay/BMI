@@ -64,7 +64,7 @@ public class Arc extends View {
         float rad, x, y;
         x = (float) getWidth() / 2;
         y = (float) getHeight() - ((float) getHeight() / 6);
-        if(y <x){
+        if(y < x){
            rad = y - ((float) getHeight() / 4);
         }else{
             rad = x - (x/4);
