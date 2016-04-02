@@ -14,7 +14,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 /**
@@ -24,17 +23,17 @@ import android.widget.Toast;
 public class BMIInput extends DialogFragment {
     DialogComm dialogComm;
     Dialog dialog;
-    String title,displayMessageS;
+    String title, displayMessageS;
     int m;
-    String tip_weight,tip_str,underweight,normal,overweight,obese,moobese;
-    TextView mtip_weight,mtip_str,munderweight,mnormal,moverweight,mobese,mmoobese;
+    String tip_weight, tip_str, underweight, normal, overweight, obese, moobese;
+    TextView mtip_weight, mtip_str, munderweight, mnormal, moverweight, mobese, mmoobese;
     View view;
     boolean loss_gain;
-    EditText mAge,mHeight_ft,mWeight,mHeight_in;
+    EditText mAge, mHeight_ft, mWeight, mHeight_in;
     private Button button;
-    private ImageButton img_buttonM,img_buttonF;
-    public boolean ismale=true;
-    public String age_input="",weight_input="",height_ft="",height_in="";
+    private ImageButton img_buttonM, img_buttonF;
+    public boolean ismale = true;
+    public String age_input = "", weight_input = "", height_ft = "", height_in = "";
     public String gender;
 
     @Override
@@ -43,15 +42,18 @@ public class BMIInput extends DialogFragment {
         super.onAttach(activity);
         dialogComm = (DialogComm) getActivity();
     }
-    public void setDialogType(int a){
-        m  = a;
+
+    public void setDialogType(int a) {
+        m = a;
     }
-    public void setTip(String weight,String months,boolean loss_gain){
+
+    public void setTip(String weight, String months, boolean loss_gain) {
         tip_weight = weight;
         tip_str = months;
         this.loss_gain = loss_gain;
     }
-    public void setBmiTable(String s1,String s2,String s3,String s4,String s5){
+
+    public void setBmiTable(String s1, String s2, String s3, String s4, String s5) {
         underweight = s1;
         normal = s2;
         overweight = s3;
@@ -62,23 +64,23 @@ public class BMIInput extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
-        AlertDialog.Builder builder = new  AlertDialog.Builder(getActivity());
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        if(m==1) {
+        if (m == 1) {
             view = inflater.inflate(R.layout.bim_inputs, null);
             // set prompts.xml to alertdialog builder
-            button = (Button)view.findViewById(R.id.bmiSave);
-            img_buttonM=(ImageButton)view.findViewById(R.id.maleButton);
-            img_buttonF=(ImageButton)view.findViewById(R.id.femaleButton);
+            button = (Button) view.findViewById(R.id.bmiSave);
+            img_buttonM = (ImageButton) view.findViewById(R.id.maleButton);
+            img_buttonF = (ImageButton) view.findViewById(R.id.femaleButton);
 
             img_buttonM.setOnClickListener(imgButtonHandlerM);
             img_buttonF.setOnClickListener(imgButtonHandlerF);
 
             final EditText mAge = (EditText) view
                     .findViewById(R.id.bimAgeInput);
-            final EditText mHeight_ft = (EditText)view.findViewById(R.id.bmiHeightInput_ft);
-            final EditText mHeight_in = (EditText)view.findViewById(R.id.bmiHeightInput_in);
-            final EditText mWeight=(EditText)view.findViewById(R.id.bmiWeightInput);
+            final EditText mHeight_ft = (EditText) view.findViewById(R.id.bmiHeightInput_ft);
+            final EditText mHeight_in = (EditText) view.findViewById(R.id.bmiHeightInput_in);
+            final EditText mWeight = (EditText) view.findViewById(R.id.bmiWeightInput);
 
 
             builder.setView(view);
@@ -98,15 +100,15 @@ public class BMIInput extends DialogFragment {
                 }
             });
 
-        }else if(m==2){
+        } else if (m == 2) {
             view = inflater.inflate(R.layout.bmi_table, null);
             builder.setView(view);
             dialog = builder.create();
-        }else if(m==3){
+        } else if (m == 3) {
             view = inflater.inflate(R.layout.bmi_message, null);
             builder.setView(view);
             dialog = builder.create();
-        }else{
+        } else {
             view = inflater.inflate(R.layout.bmi_tip, null);
             TextView weight = (TextView) view.findViewById(R.id.bmi_tip_weight);
             weight.setText(tip_weight + " Kgs");
@@ -114,65 +116,24 @@ public class BMIInput extends DialogFragment {
             builder.setView(view);
             dialog = builder.create();
         }
-      /*   if(buttonType)
-            builder.setMessage(displayMessageS);
-        else
-            builder.setMessage(displayMessage);
-        //if(iconType)
-        // builder.setIcon(R.drawable.ic_happy);
-        // else
-        // builder.setIcon(R.drawable.ic_sad);
-       if(buttonType){
-
-            builder.setNegativeButton(R.string.replay, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    dialogComm.DialogButtonAction(1);
-                }
-            });
-            builder.setNeutralButton(R.string.need_more_time, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    dialogComm.DialogButtonAction(2);
-                }
-            });
-        }else{
-            builder.setPositiveButton(R.string.dismiss, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-
-                }
-            });
-        }
-        builder.setPositiveButton(R.string.save, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialogComm.DialogButtonAction(0);
-            }
-        });*/
-
 
 
         return dialog;
     }
+
     public void save(View view) {
-        SharedPreferences sharedPreferences=getActivity().getSharedPreferences("MyData", getActivity().MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("MyData", getActivity().MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("Age", age_input);
-        editor.putString("weight",weight_input);
-        editor.putString("height_ft",height_ft);
+        editor.putString("weight", weight_input);
+        editor.putString("height_ft", height_ft);
         editor.putString("height_in", height_in);
-        if(ismale)
-        {
-            editor.putString("gender","male");
-            gender="male";
-        }
-
-
-        else
-        {
-            editor.putString("gender","female");
-            gender="female";
+        if (ismale) {
+            editor.putString("gender", "male");
+            gender = "male";
+        } else {
+            editor.putString("gender", "female");
+            gender = "female";
         }
 
 
@@ -183,13 +144,11 @@ public class BMIInput extends DialogFragment {
     View.OnClickListener imgButtonHandlerM = new View.OnClickListener() {
 
         public void onClick(View v) {
-            if(!ismale)
-            {
+            if (!ismale) {
                 img_buttonM.setBackgroundResource(R.drawable.male_blue);
-                ismale=true;
+                ismale = true;
                 img_buttonF.setBackgroundResource(R.drawable.female_light);
             }
-
 
 
         }
@@ -197,38 +156,16 @@ public class BMIInput extends DialogFragment {
     View.OnClickListener imgButtonHandlerF = new View.OnClickListener() {
 
         public void onClick(View v) {
-            if(ismale)
-            {
+            if (ismale) {
                 img_buttonF.setBackgroundResource(R.drawable.female_blue);
-                ismale=false;
+                ismale = false;
                 img_buttonM.setBackgroundResource(R.drawable.male_light);
             }
-
 
 
         }
     };
 
-
-   /* @TargetApi(Build.VERSION_CODES.M)
-    public void save(View view)
-    {
-        SharedPreferences sharedPreferences=getActivity().getSharedPreferences("MyData", getContext().MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("Age", age_input.toString());
-        editor.putString("weight",weight_input.toString());
-        editor.putString("height_ft",height_ft.toString());
-        editor.putString("height_in",height_in.toString());
-        editor.commit();
-        Toast.makeText(getContext(),"Data Saved Succesfully ",Toast.LENGTH_LONG).show();
-    }*/
-/*
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.bim_inputs,null);
-
-    }*/
 
     @Override
     public void onDetach() {
@@ -240,7 +177,8 @@ public class BMIInput extends DialogFragment {
 }
 
 
-interface DialogComm{
+interface DialogComm {
     void DialogButtonAction(int a);
-    void showinput(String age,String weight,String ft,String in,String sex);
+
+    void showinput(String age, String weight, String ft, String in, String sex);
 }

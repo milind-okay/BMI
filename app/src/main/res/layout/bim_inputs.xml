@@ -1,85 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/frame"
+    android:orientation="vertical"
     android:weightSum="5">
+
     <RelativeLayout
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/inputsPadding"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:paddingBottom="@dimen/inputsPadding">
+
         <Button
             android:id="@+id/inputs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:text="Inputs"
             android:background="#fc396df4"
+            android:text="Inputs"
             android:textColor="#ffffff" />
+
         <TextView
             android:id="@+id/genderText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Change\nGender"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="20dp"
             android:layout_toLeftOf="@+id/maleButton"
             android:layout_toStartOf="@+id/femaleButton"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="20dp" />
+            android:text="Change\nGender" />
+
         <ImageButton
             android:id="@+id/maleButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/finemargin"
             android:background="@drawable/male_blue"
-            android:layout_margin = "@dimen/finemargin"
             android:clickable="true"
             android:contextClickable="true" />
+
         <ImageButton
             android:id="@+id/femaleButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/female_light"
-            android:longClickable="true"
-            android:clickable="true"
-            android:layout_margin="@dimen/finemargin"
             android:layout_centerVertical="true"
+            android:layout_margin="@dimen/finemargin"
             android:layout_toLeftOf="@+id/maleButton"
-            android:layout_toStartOf="@+id/maleButton" />
+            android:layout_toStartOf="@+id/maleButton"
+            android:background="@drawable/female_light"
+            android:clickable="true"
+            android:longClickable="true" />
 
     </RelativeLayout>
+
     <RelativeLayout
 
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_weight="1"
         android:paddingBottom="@dimen/inputsPadding"
-        android:paddingTop="@dimen/inputsPadding"
         android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:layout_weight="1">
+        android:paddingTop="@dimen/inputsPadding">
+
         <TextView
             android:id="@+id/bmiAge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Age"
-            android:textSize="@dimen/inputsText"
+            android:layout_centerInParent="true"
             android:layout_toLeftOf="@+id/bimAgeInput"
             android:layout_toStartOf="@+id/bimAgeInput"
-            android:layout_centerInParent="true" />
+            android:text="Age"
+            android:textSize="@dimen/inputsText" />
 
         <EditText
+            android:id="@+id/bimAgeInput"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="numberSigned"
-            android:ems="5"
-            android:id="@+id/bimAgeInput"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:editable="true"
             android:ellipsize="middle"
+            android:ems="5"
             android:focusable="true"
             android:gravity="center_vertical|center_horizontal"
+            android:inputType="numberSigned"
             android:maxLength="3"
+            android:maxLines="1"
+            android:minLines="1"
+            android:minWidth="1dp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/bmiAge"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/bimAgeInput"
+            android:layout_toRightOf="@+id/bimAgeInput"
+            android:text="/DOB" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/inputsPadding"
+            android:layout_toRightOf="@id/textView4"
+            android:background="@drawable/date" />
+    </RelativeLayout>
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingBottom="@dimen/inputsPadding"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/inputsPadding">
+
+        <TextView
+            android:id="@+id/bmiWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toLeftOf="@+id/bmiWeightInput"
+            android:layout_toStartOf="@+id/bmiWeightInput"
+            android:text="Weight"
+            android:textSize="@dimen/inputsText" />
+
+        <EditText
+            android:id="@+id/bmiWeightInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:editable="true"
+            android:ellipsize="middle"
+
+            android:ems="5"
+            android:focusable="true"
+            android:gravity="center_vertical|center_horizontal"
+            android:inputType="numberDecimal"
+            android:maxLength="5"
             android:maxLines="1"
             android:minLines="1"
             android:minWidth="1dp" />
@@ -87,154 +150,104 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="/DOB"
-            android:id="@+id/textView4"
-            android:layout_alignBottom="@+id/bmiAge"
-            android:layout_toRightOf="@+id/bimAgeInput"
-            android:layout_toEndOf="@+id/bimAgeInput"
-            android:layout_marginTop="10dp" />
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/textView4"
-            android:background="@drawable/date"
-            android:layout_marginLeft="@dimen/inputsPadding"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:paddingBottom="@dimen/inputsPadding"
-        android:paddingTop="@dimen/inputsPadding"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:layout_weight="1">
-        <TextView
-            android:id="@+id/bmiWeight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Weight"
-            android:textSize="@dimen/inputsText"
-            android:layout_toLeftOf="@+id/bmiWeightInput"
-            android:layout_toStartOf="@+id/bmiWeightInput"
-            android:layout_centerInParent="true" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="5"
-            android:id="@+id/bmiWeightInput"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:inputType="numberDecimal"
-
-            android:editable="true"
-            android:ellipsize="middle"
-            android:focusable="true"
-            android:gravity="center_vertical|center_horizontal"
-            android:maxLength="5"
-            android:maxLines="1"
-            android:minLines="1"
-            android:minWidth="1dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Kg"
-
             android:layout_alignBottom="@+id/bmiWeight"
+
+            android:layout_toEndOf="@+id/bmiWeightInput"
             android:layout_toRightOf="@+id/bmiWeightInput"
-            android:layout_toEndOf="@+id/bmiWeightInput" />
+            android:text="Kg" />
     </RelativeLayout>
+
     <RelativeLayout
 
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_weight="1"
         android:paddingBottom="@dimen/inputsPadding"
-        android:paddingTop="@dimen/inputsPadding"
         android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:layout_weight="1">
+        android:paddingTop="@dimen/inputsPadding">
+
         <TextView
             android:id="@+id/bmiHeight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Height"
-            android:textSize="@dimen/inputsText"
+            android:layout_centerInParent="true"
             android:layout_toLeftOf="@+id/bmiHeightInput_ft"
             android:layout_toStartOf="@+id/bmiHeightInput_ft"
-            android:layout_centerInParent="true" />
+            android:text="Height"
+            android:textSize="@dimen/inputsText" />
 
         <EditText
+            android:id="@+id/bmiHeightInput_ft"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="numberSigned"
-            android:ems="5"
-            android:id="@+id/bmiHeightInput_ft"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-
             android:editable="true"
             android:ellipsize="middle"
+
+            android:ems="5"
             android:focusable="true"
             android:gravity="center_vertical|center_horizontal"
+            android:inputType="numberSigned"
             android:maxLength="2"
             android:maxLines="1"
             android:minLines="1"
-            android:minWidth="1dp"/>
+            android:minWidth="1dp" />
 
         <TextView
+            android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ft"
 
             android:layout_alignBottom="@+id/bmiHeight"
-            android:layout_toRightOf="@+id/bmiHeightInput_ft"
             android:layout_toEndOf="@+id/bmiHeightInput_ft"
-            android:id="@+id/textView5" />
+            android:layout_toRightOf="@+id/bmiHeightInput_ft"
+            android:text="ft" />
 
         <EditText
+            android:id="@+id/bmiHeightInput_in"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="numberSigned"
-            android:ems="2"
-            android:id="@+id/bmiHeightInput_in"
             android:layout_alignBottom="@+id/bmiHeightInput_ft"
-            android:layout_toRightOf="@+id/textView5"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+            android:layout_toRightOf="@+id/textView5"
             android:editable="true"
             android:ellipsize="middle"
+            android:ems="2"
             android:focusable="true"
             android:gravity="center_vertical|center_horizontal"
+            android:inputType="numberSigned"
             android:maxLength="2"
             android:maxLines="1"
             android:minLines="1"
-            android:minWidth="1dp"/>
+            android:minWidth="1dp" />
 
         <TextView
+            android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="in"
-            android:id="@+id/textView6"
             android:layout_alignTop="@+id/textView5"
+            android:layout_toEndOf="@+id/bmiHeightInput_in"
             android:layout_toRightOf="@+id/bmiHeightInput_in"
-            android:layout_toEndOf="@+id/bmiHeightInput_in" />
+            android:text="in" />
     </RelativeLayout>
+
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_weight="1"
         android:gravity="center"
-        android:layout_weight="1">
+        android:orientation="horizontal">
 
         <Button
+            android:id="@+id/bmiSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Save"
-            android:id="@+id/bmiSave"
-            android:typeface="normal"
+            android:background="@color/overweight"
             android:backgroundTint="@color/normal"
             android:backgroundTintMode="src_over"
-            android:background="@color/overweight" />
+            android:text="Save"
+            android:typeface="normal" />
     </LinearLayout>
 </LinearLayout>

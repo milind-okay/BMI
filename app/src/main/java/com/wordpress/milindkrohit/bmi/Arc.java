@@ -3,6 +3,7 @@ package com.wordpress.milindkrohit.bmi;
 /**
  * Created by milind on 12/2/16.
  */
+
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -16,7 +17,7 @@ public class Arc extends View {
 
     Paint paint;
     Path path;
-    float m1,m2,m3,m4,m5,m;
+    float m1, m2, m3, m4, m5, m;
 
     public Arc(Context context) {
         super(context);
@@ -39,18 +40,19 @@ public class Arc extends View {
         setMinimumWidth(100);
     }
 
-    private void init(){
+    private void init() {
         paint = new Paint();
         paint.setColor(Color.BLUE);
         paint.setStrokeWidth(2);
         paint.setStyle(Paint.Style.STROKE);
 
     }
-    public  void setValue(double x,double y, double z,double p,double q ){
-        m1  = (float)(x*6);
-        m2  = (float)(y*6);
-        m3  = (float)(z*6);
-        m4 = (float)(p*6);
+
+    public void setValue(double x, double y, double z, double p, double q) {
+        m1 = (float) (x * 6);
+        m2 = (float) (y * 6);
+        m3 = (float) (z * 6);
+        m4 = (float) (p * 6);
         m5 = 30;
     }
 
@@ -59,43 +61,36 @@ public class Arc extends View {
     protected void onDraw(Canvas canvas) {
         // TODO Auto-generated method stub
         super.onDraw(canvas);
-        float rad = 377,x,y;
-        x = (float)getWidth()/2;
-        y = (float)getHeight() - ((float)getHeight()/6);
+        float rad = 377, x, y;
+        x = (float) getWidth() / 2;
+        y = (float) getHeight() - ((float) getHeight() / 6);
 
         final RectF oval = new RectF();
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(102.0f);
-  /*
-   * drawArc(RectF oval, float startAngle, float sweepAngle, boolean useCenter, Paint paint)
-   *
-   * oval - The bounds of oval used to define the shape and size of the arc
-   * startAngle - Starting angle (in degrees) where the arc begins
-   * sweepAngle - Sweep angle (in degrees) measured clockwise
-   * useCenter - If true, include the center of the oval in the arc, and close it if it is being stroked. This will draw a wedge
-   * paint - The paint used to draw the arc
-   */   float startAngle = 180;
+
+        float startAngle = 180;
         oval.set(x - rad, y - rad, x + rad, y + rad);
         paint.setColor(Color.BLUE);
         canvas.drawArc(oval, startAngle, m1, false, paint);
 
         paint.setColor(Color.GREEN);
-        startAngle+=m1;
+        startAngle += m1;
         canvas.drawArc(oval, startAngle, m2, false, paint);
-        paint.setColor(Color.rgb(144,102, 3));
-        startAngle+=m2;
+        paint.setColor(Color.rgb(144, 102, 3));
+        startAngle += m2;
         canvas.drawArc(oval, startAngle, m3, false, paint);
         paint.setColor(Color.rgb(204, 51, 10));
-        startAngle+=m3;
+        startAngle += m3;
         canvas.drawArc(oval, startAngle, m4, false, paint);
         paint.setColor(Color.RED);
-        startAngle+=m4;
+        startAngle += m4;
         canvas.drawArc(oval, startAngle, 180 - (startAngle - 180), false, paint);
 
         paint.setColor(Color.WHITE);
         startAngle = 180;
-        for(int i=0;i<5;i++){
-            startAngle+=m5;
+        for (int i = 0; i < 5; i++) {
+            startAngle += m5;
             canvas.drawArc(oval, startAngle, 1, false, paint);
         }
 

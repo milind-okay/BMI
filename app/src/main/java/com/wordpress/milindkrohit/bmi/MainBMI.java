@@ -1,8 +1,6 @@
 package com.wordpress.milindkrohit.bmi;
 
 import android.annotation.TargetApi;
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -12,7 +10,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,10 +17,8 @@ import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -31,14 +26,15 @@ public class MainBMI extends AppCompatActivity implements DialogComm {
     Animation animRotate;
     ImageView mneedle;
     Button mbuttonok;
-    double  mWeight, mHeight, age, heightFt, heightIn,idealBMI,lowerNormalBMI,upperNormalBMI;
+    double mWeight, mHeight, age, heightFt, heightIn, idealBMI, lowerNormalBMI, upperNormalBMI;
     float mNeedleAngle;
     private String age_input = "", height_input_ft = "", height_input_in = "", weight_input = "";
     private final String Default = "N/A";
-    TextView ageTextView, weightTextView, heightTextViewIn, heightTextViewFt,text_2_part;
-    ImageButton risk_button, target_button, info_button,edit_button;
-    ImageView imageView1,imageView2,gauge_marks;
-    String weight,height_in,height_ft,gender,mAge;
+    TextView ageTextView, weightTextView, heightTextViewIn, heightTextViewFt, text_2_part;
+    ImageButton risk_button, target_button, info_button, edit_button;
+    ImageView imageView1, imageView2, gauge_marks;
+    String weight, height_in, height_ft, gender, mAge;
+
     @TargetApi(Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,12 +44,12 @@ public class MainBMI extends AppCompatActivity implements DialogComm {
         setSupportActionBar(toolbar);
         init();
         Bitmap bmp = BitmapFactory.decodeResource(getResources(), R.drawable.needle);
-        RelativeLayout l1 = (RelativeLayout)findViewById(R.id.bmiL1);
+        RelativeLayout l1 = (RelativeLayout) findViewById(R.id.bmiL1);
         ImageView ivBack = new ImageView(this);
         ivBack.setImageResource(R.drawable.gauge_mark);
 
         l1.addView(ivBack);
-        Arc pcc = new Arc (this);
+        Arc pcc = new Arc(this);
         pcc.setValue(3.5, 6.5, 5, 10, 15);
         Bitmap result = Bitmap.createBitmap(125, 125, Bitmap.Config.ARGB_8888);
 
@@ -61,7 +57,6 @@ public class MainBMI extends AppCompatActivity implements DialogComm {
         pcc.draw(canvas);
 
         l1.addView(pcc);
-
 
 
         mneedle.setImageBitmap(bmp);
@@ -85,7 +80,7 @@ public class MainBMI extends AppCompatActivity implements DialogComm {
                 mWeight = Double.parseDouble(weight);
                 heightFt = Double.parseDouble(height_ft);
                 heightIn = Double.parseDouble(height_in);
-                mHeight = 0.0254 * (heightFt*12 + heightIn);
+                mHeight = 0.0254 * (heightFt * 12 + heightIn);
             } catch (NumberFormatException e) {
                 // p did not contain a valid double
             }
@@ -111,20 +106,17 @@ public class MainBMI extends AppCompatActivity implements DialogComm {
                 mWeight = Double.parseDouble(weight);
                 heightFt = Double.parseDouble(height_ft);
                 heightIn = Double.parseDouble(height_in);
-                mHeight = 0.0254 * (heightFt*12 + heightIn);
+                mHeight = 0.0254 * (heightFt * 12 + heightIn);
 
-            }catch (NumberFormatException e) {
+            } catch (NumberFormatException e) {
                 // p did not contain a valid double
             }
             display();
         }
-        if(gender=="male")
-        {
+        if (gender == "male") {
             imageView2.setBackgroundResource(R.drawable.female_light);
             imageView1.setBackgroundResource(R.drawable.male_blue);
-        }
-        else if(gender=="female")
-        {
+        } else if (gender == "female") {
             imageView2.setBackgroundResource(R.drawable.female_blue);
             imageView1.setBackgroundResource(R.drawable.male_light);
         }
@@ -160,18 +152,18 @@ public class MainBMI extends AppCompatActivity implements DialogComm {
         risk_button = (ImageButton) findViewById(R.id.risk_button);
         info_button = (ImageButton) findViewById(R.id.info_button);
         target_button = (ImageButton) findViewById(R.id.target_button);
-        edit_button=(ImageButton)findViewById(R.id.editImage);
-        imageView1=(ImageView)findViewById(R.id.imageView1);
-        imageView2=(ImageView)findViewById(R.id.imageView2);
+        edit_button = (ImageButton) findViewById(R.id.editImage);
+        imageView1 = (ImageView) findViewById(R.id.imageView1);
+        imageView2 = (ImageView) findViewById(R.id.imageView2);
         //gauge_marks = (ImageView)findViewById(R.id.gauge_marks);
         ageTextView = (TextView) findViewById(R.id.age_display);
         heightTextViewFt = (TextView) findViewById(R.id.height_ft_display);
         heightTextViewIn = (TextView) findViewById(R.id.height_in_display);
         weightTextView = (TextView) findViewById(R.id.weight_display);
-        text_2_part=(TextView)findViewById(R.id.text_2_part);
+        text_2_part = (TextView) findViewById(R.id.text_2_part);
         lowerNormalBMI = 18.5;
         upperNormalBMI = 25;
-        idealBMI = (lowerNormalBMI + upperNormalBMI)/2;
+        idealBMI = (lowerNormalBMI + upperNormalBMI) / 2;
         mWeight = 60;
         mHeight = 1.54;
     }
@@ -214,17 +206,14 @@ public class MainBMI extends AppCompatActivity implements DialogComm {
     @Override
     public void showinput(String age, String input_weight, String ft, String in, String sex) {
         mAge = age;
-        weight=input_weight;
-        height_in=in;
-        height_ft=ft;
-        gender=sex;
-        if(gender=="male")
-        {
+        weight = input_weight;
+        height_in = in;
+        height_ft = ft;
+        gender = sex;
+        if (gender == "male") {
             imageView2.setBackgroundResource(R.drawable.female_light);
             imageView1.setBackgroundResource(R.drawable.male_blue);
-        }
-        else if(gender=="female")
-        {
+        } else if (gender == "female") {
             imageView2.setBackgroundResource(R.drawable.female_blue);
             imageView1.setBackgroundResource(R.drawable.male_light);
         }
@@ -235,21 +224,22 @@ public class MainBMI extends AppCompatActivity implements DialogComm {
             mWeight = Double.parseDouble(weight);
             heightFt = Double.parseDouble(height_ft);
             heightIn = Double.parseDouble(height_in);
-            mHeight = 0.0254 * (heightFt*12 + heightIn);
+            mHeight = 0.0254 * (heightFt * 12 + heightIn);
 
-        }catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {
             // p did not contain a valid double
         }
         display();
         mNeedleAngle = (float) (mWeight / (mHeight * mHeight));
         turn(mNeedleAngle * 6);
     }
+
     public void display() {
         ageTextView.setText(mAge);
         weightTextView.setText(weight);
         heightTextViewIn.setText(height_in);
         heightTextViewFt.setText(height_ft);
-        String ideal_weight=String.format("%.2f",idealBMI*mHeight*mHeight);   // showing the ideal weight.........
+        String ideal_weight = String.format("%.2f", idealBMI * mHeight * mHeight);   // showing the ideal weight.........
         text_2_part.setText(ideal_weight);
     }
 
@@ -260,9 +250,9 @@ public class MainBMI extends AppCompatActivity implements DialogComm {
         if (dNum == 2) {
             dialogAlert.setBmiTable("<8", "18.5-25", "25-30", "30-40", ">40");
         } else if (dNum == 4) {
-            double weight_change =(idealBMI*mHeight*mHeight) - mWeight;
-            String weight=String.format("%.2f",weight_change);
-            dialogAlert.setTip(weight, "2-3",true);
+            double weight_change = (idealBMI * mHeight * mHeight) - mWeight;
+            String weight = String.format("%.2f", weight_change);
+            dialogAlert.setTip(weight, "2-3", true);
         }
         dialogAlert.show(getFragmentManager(), "gameAlert");
     }
